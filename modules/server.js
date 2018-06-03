@@ -1,6 +1,6 @@
 // modules from node
 var http = require('http');
-var fs = require('fs');
+// var fs = require('fs');
 var colors = require('colors');
 // + npm install --save colors
 
@@ -11,14 +11,14 @@ function start() {
   function onRequest(request, response) {
     console.log('Odebrano zapytanie'.green);
     console.log(('Zapytanie' + request.url + ' odebrane.').green);
-    response.writeHead(200, {"Content-Type":"text/plain;charset=utf-8"});
+    response.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
     switch (request.url) {
       case '/':
       case '/start':
         handlers.welcome(request, response);
         break;
       case '/upload':
-        handlers.upload(request,response);
+        handlers.upload(request, response);
         break;
       case '/show':
         handlers.show(request, response);

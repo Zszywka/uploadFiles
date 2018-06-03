@@ -9,8 +9,6 @@ exports.welcome = function(request,response) {
     response.write(html);
     response.end();
   });
-  // response.write("Witaj na stronie startowej!");
-  // response.end();
 }
 
 exports.upload = function(request,response) {
@@ -23,13 +21,18 @@ exports.upload = function(request,response) {
     response.write("<img src='/show' />");
     response.end();
   });
+  fs.readFile('templates/upload.html', function(err, html){
+    response.writeHead(200, {"Content-Type":"text/html; charset=utf-8"});
+    response.write(html);
+    response.end();
+  });
   // response.write("Rozpoczynam upload!");
   // response.end();
 }
 
 exports.show = function(request, response) {
   console.log(("Rozpoczyna obsługę żądania show").green);
-  fs.readFile('test.png', 'binary', function(error, file){
+  fs.readFile('test.png', 'binary', function(error, file) {
     response.writeHead(200, {'Content-Type':'image/png/jpg'});
     response.write(file,'binary');
     response.end();
