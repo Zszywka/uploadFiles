@@ -23,6 +23,9 @@ function start() {
       case '/show':
         handlers.show(request, response);
         break;
+      case '/imageError':
+        handlers.imageError(request, response);
+        break;
       default:
         handlers.error(request,response);
     }
